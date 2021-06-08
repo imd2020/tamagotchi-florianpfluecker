@@ -1,3 +1,36 @@
+background(255);
+let hunger = 200;
+let thirst = 200;
+let attention = 200;
+let counter = 0;
+
+//class imports
+import Button from "./Button.js";
+import Parameter from "./Parameter.js";
+import DevelopmentStages from "./DevelopmentStages.js";
+
+//parameters
+let Hunger = new Parameter(500, 10, 200, 25, 180, 100, 0);
+let Thirst = new Parameter(500, 40, 200, 25, 0, 180, 0);
+let Attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
+
+//buttons
+let FeedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
+let AttentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
+let WaterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
+
+function draw() {
+  Hunger.display();
+  Thirst.display();
+  Attention.display();
+  FeedButton.display();
+  AttentionButton.display();
+  WaterButton.display();
+  image(youth, 300, 100, 352, 518);
+  image(youthHappy, 405, 140, 112, 141);
+}
+
+//_______________________________________________________
 //YOUTH
 youth = loadImage("./CC_T_YouthBody.png");
 youthAngry = loadImage("./CC_T_YouthBody-AngryEYES.png");
@@ -15,23 +48,3 @@ babySad = loadImage("CC_T_BabyBody-EyesSAD.png");
 egg = loadImage("CC_T_Egg.png");
 eggCrack = loadImage("CC_T_Egg-Crack.png ");
 eggCracked = loadImage("CC_T_Egg-Cracked.png");
-
-function draw() {
-  //YOUTH
-  image(youth, 300, 100, 352, 518);
-  //image(youthAngry, 205, 145, 112, 156);
-  image(youthHappy, 405, 140, 112, 141);
-  //image(youthSad, 205, 140, 112, 136);
-  //CHILD
-  //image(child, 0, 290, 506, 322);
-  //image(childSad, 307, 347, 123, 86);
-  //image(childHappy, 307, 347, 123, 86);
-  //BABY
-  //image(baby, 170, 440, 385, 176);
-  //image(babyHappy, 340, 475, 55, 36);
-  //image(babySad, 338, 473, 60, 39);
-  //EGG
-  //image(egg, 100, 100, 141, 203);
-  //image(eggCrack, 300, 100, 141, 203);
-  //image(eggCracked, 500, 100, 141, 203);
-}
