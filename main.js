@@ -2,7 +2,8 @@ background(255);
 let hunger = 200;
 let thirst = 200;
 let attention = 200;
-let counter = 0;
+let developmentCounter = 0;
+let state = "neutral";
 
 //class imports
 import Button from "./Button.js";
@@ -15,9 +16,9 @@ let Thirst = new Parameter(500, 40, 200, 25, 0, 180, 0);
 let Attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
 
 //buttons
-let FeedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
-let AttentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
-let WaterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
+let FeedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
+let AttentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
+let WaterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
 
 function draw() {
   Hunger.display();
@@ -26,8 +27,24 @@ function draw() {
   FeedButton.display();
   AttentionButton.display();
   WaterButton.display();
-  image(youth, 300, 100, 352, 518);
-  image(youthHappy, 405, 140, 112, 141);
+
+  console.log(state);
+  console.log(developmentCounter);
+}
+
+function mouseClicked() {
+  if (FeedButton.hitTest()) {
+    state = "happy";
+    developmentCounter = developmentCounter + 1;
+  }
+  if (AttentionButton.hitTest()) {
+    state = "normal";
+    developmentCounter = developmentCounter + 1;
+  }
+  if (WaterButton.hitTest()) {
+    state = "sad";
+    developmentCounter = developmentCounter + 1;
+  }
 }
 
 //_______________________________________________________

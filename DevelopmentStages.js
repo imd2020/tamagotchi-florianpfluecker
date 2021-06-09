@@ -29,4 +29,10 @@ export default class DevelopmentStages {
     //image(youthHappy, 405, 140, 112, 141);
     //image(youthSad, 205, 140, 112, 136);
   }
+  display() {
+    this.egg();
+    this.baby();
+    this.child();
+    this.youth();
+  }
 }

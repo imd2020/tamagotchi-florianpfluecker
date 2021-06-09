@@ -1,5 +1,5 @@
 export default class Button {
-  constructor(x, y, w, h, title, r, g, b) {
+  constructor(x, y, w, h, title, r, g, b, state) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -8,6 +8,7 @@ export default class Button {
     this.r = r;
     this.g = g;
     this.b = b;
+    this.state = state;
   }
 
   display() {
@@ -25,7 +26,7 @@ export default class Button {
       mouseY < this.y + this.h &&
       mouseY >= this.y
     ) {
-      //state = this.state;
+      state = this.state;
       return true;
     } else {
       return false;
