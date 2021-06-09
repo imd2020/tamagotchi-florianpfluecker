@@ -2,10 +2,17 @@ export default class DevelopmentStages {
   constructor() {}
 
   egg() {
-    //EGG
-    //image(egg, 100, 100, 141, 203);
-    //image(eggCrack, 300, 100, 141, 203);
-    //image(eggCracked, 500, 100, 141, 203);
+    if (developmentCounter === 1) {
+      image(egg, 100, 100, 141, 203);
+    }
+
+    if (developmentCounter === 3) {
+      image(eggCrack, 300, 100, 141, 203);
+    }
+
+    if (developmentCounter === 5) {
+      image(eggCracked, 500, 100, 141, 203);
+    }
   }
 
   baby() {

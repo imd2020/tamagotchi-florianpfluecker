@@ -3,6 +3,7 @@ let hunger = 200;
 let thirst = 200;
 let attention = 200;
 let developmentCounter = 0;
+let mood = "neutral";
 let state = "neutral";
 
 //class imports
@@ -19,6 +20,25 @@ let Attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
 let FeedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
 let AttentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
 let WaterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
+let Development = new DevelopmentStages();
+
+function mouseClicked() {
+  if (FeedButton.hitTest()) {
+    mood = "happy";
+    developmentCounter = developmentCounter + 1;
+    //hunger variable auffüllen
+  }
+  if (AttentionButton.hitTest()) {
+    mood = "normal";
+    developmentCounter = developmentCounter + 1;
+    //attention variable auffüllen
+  }
+  if (WaterButton.hitTest()) {
+    mood = "sad";
+    developmentCounter = developmentCounter + 1;
+    //thirst variable auffüllen
+  }
+}
 
 function draw() {
   Hunger.display();
@@ -27,26 +47,14 @@ function draw() {
   FeedButton.display();
   AttentionButton.display();
   WaterButton.display();
+  Development.display();
 
+  //logs----------
   console.log(state);
   console.log(developmentCounter);
 }
 
-function mouseClicked() {
-  if (FeedButton.hitTest()) {
-    state = "happy";
-    developmentCounter = developmentCounter + 1;
-  }
-  if (AttentionButton.hitTest()) {
-    state = "normal";
-    developmentCounter = developmentCounter + 1;
-  }
-  if (WaterButton.hitTest()) {
-    state = "sad";
-    developmentCounter = developmentCounter + 1;
-  }
-}
-
+//PNGs
 //_______________________________________________________
 //YOUTH
 youth = loadImage("./CC_T_YouthBody.png");
