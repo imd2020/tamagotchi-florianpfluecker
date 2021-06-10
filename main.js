@@ -12,15 +12,15 @@ import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
-let Hunger = new Parameter(500, 10, 200, 25, 180, 100, 0);
-let Thirst = new Parameter(500, 40, 200, 25, 0, 180, 0);
-let Attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
+let hunger = new Parameter(500, 10, 200, 25, 180, 100, 0);
+let thirst = new Parameter(500, 40, 200, 25, 0, 180, 0);
+let attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
 
 //buttons
-let FeedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
-let AttentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
-let WaterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
-let Development = new DevelopmentStages();
+let feedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
+let attentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
+let waterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
+let development = new DevelopmentStages();
 
 function mouseClicked() {
   if (FeedButton.hitTest()) {
@@ -41,13 +41,13 @@ function mouseClicked() {
 }
 
 function draw() {
-  Hunger.display();
-  Thirst.display();
-  Attention.display();
-  FeedButton.display();
-  AttentionButton.display();
-  WaterButton.display();
-  Development.display();
+  hunger.display();
+  thirst.display();
+  attention.display();
+  feedButton.display();
+  attentionButton.display();
+  waterButton.display();
+  development.display();
 
   //logs----------
   console.log(state);

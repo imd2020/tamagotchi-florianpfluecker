@@ -1,5 +1,5 @@
 export default class Parameter {
-  constructor(x, y, w, h, r, g, b) {
+  constructor(x, y, w, h, r, g, b, variation) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -7,6 +7,7 @@ export default class Parameter {
     this.r = r;
     this.g = g;
     this.b = b;
+    this.variation = variation;
   }
 
   hunger() {
@@ -30,7 +31,7 @@ export default class Parameter {
   parameter() {
     noStroke();
     fill(this.r, this.g, this.b);
-    rect(this.x, this.y, hunger, this.h, 8);
+    rect(this.x, this.y, variation, this.h, 8);
   }
 
   display() {
