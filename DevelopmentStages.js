@@ -2,40 +2,70 @@ export default class DevelopmentStages {
   constructor() {}
 
   egg() {
-    if (developmentCounter === 1) {
-      image(egg, 100, 100, 141, 203);
+    if (developmentCounter <= 2) {
+      image(egg, 330, 520, 141, 203);
     }
 
-    if (developmentCounter === 3) {
-      image(eggCrack, 300, 100, 141, 203);
+    if (developmentCounter >= 3 && developmentCounter <= 5) {
+      image(eggCrack, 330, 520, 141, 203);
     }
 
-    if (developmentCounter === 5) {
-      image(eggCracked, 500, 100, 141, 203);
+    if (developmentCounter > 5 && developmentCounter <= 6) {
+      image(eggCracked, 330, 520, 141, 203);
     }
   }
 
   baby() {
     //BABY
-    //image(baby, 170, 440, 385, 176);
-    //image(babyHappy, 340, 475, 55, 36);
-    //image(babySad, 338, 473, 60, 39);
+    if (developmentCounter > 6 && developmentCounter <= 9) {
+      image(baby, 210, 540, 385, 176);
+    }
+
+    if (developmentCounter > 6 && developmentCounter <= 9 && hunger > 140) {
+      image(babyHappy, 368, 575, 55, 36);
+    }
+
+    if (developmentCounter > 6 && developmentCounter <= 9 && hunger <= 140) {
+      image(babySad, 368, 573, 60, 39);
+    }
   }
 
   child() {
     //CHILD
-    //image(child, 0, 290, 506, 322);
-    //image(childSad, 307, 347, 123, 86);
-    //image(childHappy, 307, 347, 123, 86);
+
+    if (developmentCounter > 9 && developmentCounter <= 15) {
+      image(child, 30, 390, 506, 322);
+    }
+
+    if (developmentCounter > 9 && developmentCounter <= 15) {
+      //image(childHappy, 307, 447, 123, 86);
+    }
+
+    if (developmentCounter > 9 && developmentCounter <= 15) {
+      //image(childSad, 307, 447, 123, 86);
+    }
   }
 
   youth() {
     //YOUTH
-    //image(youth, 300, 100, 352, 518);
-    //image(youthAngry, 405, 145, 112, 156);
-    //image(youthHappy, 405, 140, 112, 141);
-    //image(youthSad, 205, 140, 112, 136);
+
+    if (developmentCounter > 15) {
+      image(youth, 235, 200, 352, 518);
+    }
+
+    if (developmentCounter > 15) {
+      image(youthHappy, 340, 240, 112, 141);
+    }
+
+    if (developmentCounter > 15) {
+      //image(youthSad, 340, 240, 112, 136);
+    }
+
+    if (developmentCounter > 15) {
+      //image(youthAngry, 340, 245, 112, 156);
+    }
   }
+
   display() {
     this.egg();
     this.baby();

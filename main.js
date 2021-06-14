@@ -1,10 +1,11 @@
-background(255);
 let hunger = 200;
 let thirst = 200;
 let attention = 200;
 let developmentCounter = 0;
 let mood = "neutral";
-let state = "neutral";
+let gameState = "startScreen";
+
+//functions
 
 //class imports
 import Button from "./Button.js";
@@ -12,46 +13,65 @@ import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
-let hunger = new Parameter(500, 10, 200, 25, 180, 100, 0);
-let thirst = new Parameter(500, 40, 200, 25, 0, 180, 0);
-let attention = new Parameter(500, 70, 200, 25, 0, 105, 105);
+let hungerBar = new Parameter(500, 10, 200, 25, 180, 100, 0);
+let thirstBar = new Parameter(500, 40, 200, 25, 0, 180, 0);
+let attentionBar = new Parameter(500, 70, 200, 25, 0, 105, 105);
 
 //buttons
 let feedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
+let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
+
+//drawings 7 PNGs
 let development = new DevelopmentStages();
 
 function mouseClicked() {
-  if (FeedButton.hitTest()) {
+  if (feedButton.hitTest()) {
     mood = "happy";
     developmentCounter = developmentCounter + 1;
+    hunger = hunger + 50;
     //hunger variable auffüllen
   }
-  if (AttentionButton.hitTest()) {
+  if (attentionButton.hitTest()) {
     mood = "normal";
     developmentCounter = developmentCounter + 1;
     //attention variable auffüllen
   }
-  if (WaterButton.hitTest()) {
+  if (waterButton.hitTest()) {
     mood = "sad";
     developmentCounter = developmentCounter + 1;
     //thirst variable auffüllen
   }
+  if (startButton.hitTest()) {
+    gameState = "game";
+    console.log("works");
+  }
 }
 
 function draw() {
-  hunger.display();
-  thirst.display();
-  attention.display();
-  feedButton.display();
-  attentionButton.display();
-  waterButton.display();
-  development.display();
+  if (gameState === "startScreen") {
+    rect(0, 0, 800, 900);
+    startButton.display();
+  }
+
+  if (gameState === "game") {
+    rect(0, 0, 800, 900);
+    fill(130);
+    ellipse(400, 700, 300, 60);
+    hungerBar.display();
+    thirstBar.display();
+    attentionBar.display();
+    feedButton.display();
+    attentionButton.display();
+    waterButton.display();
+    development.display();
+  }
 
   //logs----------
-  console.log(state);
+  //console.log(gameState);
   console.log(developmentCounter);
+  //console.log(hunger);
 }
 
 //PNGs
