@@ -27,7 +27,7 @@ let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
 let development = new DevelopmentStages();
 
 function mouseClicked() {
-  if (feedButton.hitTest()) {
+  if (feedButton.hitTest() && hunger <= 150) {
     mood = "happy";
     developmentCounter = developmentCounter + 1;
     hunger = hunger + 50;

@@ -10,7 +10,7 @@ export default class Parameter {
   }
 
   hunger() {
-    hunger = hunger - 0.5;
+    hunger = hunger - 0.02;
   }
 
   thirst() {
