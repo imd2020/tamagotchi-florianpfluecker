@@ -34,20 +34,24 @@ function mouseClicked() {
     hunger = hunger + 50;
     //hunger variable auffüllen
   }
+
   if (attentionButton.hitTest()) {
     mood = "normal";
     developmentCounter = developmentCounter + 1;
     //attention variable auffüllen
   }
+
   if (waterButton.hitTest()) {
     mood = "sad";
     developmentCounter = developmentCounter + 1;
     //thirst variable auffüllen
   }
+
   if (startButton.hitTest()) {
     gameState = "game";
     console.log("works");
   }
+
   if (warmButton.hitTest() && developmentCounter <= 6) {
     developmentCounter = developmentCounter + 1;
   }
