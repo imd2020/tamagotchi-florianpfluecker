@@ -13,7 +13,7 @@ export default class Button {
   display() {
     noStroke();
     fill(this.r, this.g, this.b);
-    rect(this.x, this.y, this.w, this.h, 5);
+    rect(this.x, this.y, this.w, this.h, 15);
     fill(255);
     textSize(18);
     textAlign(CENTER);

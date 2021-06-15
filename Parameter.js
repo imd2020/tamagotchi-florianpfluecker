@@ -31,6 +31,7 @@ export default class Parameter {
     noStroke();
     fill(this.r, this.g, this.b);
     rect(this.x, this.y, hunger, this.h, 8);
+    noFill();
   }
 
   display() {

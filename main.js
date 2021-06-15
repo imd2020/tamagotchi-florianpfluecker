@@ -22,6 +22,7 @@ let feedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
 let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
+let warmButton = new Button(350, 800, 100, 50, "Warm", 150, 150, 150);
 
 //drawings 7 PNGs
 let development = new DevelopmentStages();
@@ -47,25 +48,36 @@ function mouseClicked() {
     gameState = "game";
     console.log("works");
   }
+  if (warmButton.hitTest() && developmentCounter <= 6) {
+    developmentCounter = developmentCounter + 1;
+  }
 }
 
 function draw() {
+  //startSCreen
   if (gameState === "startScreen") {
-    rect(0, 0, 800, 900);
+    rect(0, 0, 800, 900, 50);
     startButton.display();
   }
 
+  //gameScreen
   if (gameState === "game") {
-    rect(0, 0, 800, 900);
+    rect(0, 0, 800, 900, 50);
     fill(130);
     ellipse(400, 700, 300, 60);
+
     hungerBar.display();
     thirstBar.display();
     attentionBar.display();
-    feedButton.display();
-    attentionButton.display();
-    waterButton.display();
     development.display();
+    if (developmentCounter <= 6) {
+      warmButton.display();
+    }
+    if (developmentCounter > 6) {
+      feedButton.display();
+      attentionButton.display();
+      waterButton.display();
+    }
   }
 
   //logs----------

@@ -3,15 +3,15 @@ export default class DevelopmentStages {
 
   egg() {
     if (developmentCounter <= 2) {
-      image(egg, 330, 520, 141, 203);
+      image(egg, 330, 505, 141, 203);
     }
 
     if (developmentCounter >= 3 && developmentCounter <= 5) {
-      image(eggCrack, 330, 520, 141, 203);
+      image(eggCrack, 330, 505, 141, 203);
     }
 
     if (developmentCounter > 5 && developmentCounter <= 6) {
-      image(eggCracked, 330, 520, 141, 203);
+      image(eggCracked, 330, 505, 141, 203);
     }
   }
 
