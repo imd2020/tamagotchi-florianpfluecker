@@ -22,11 +22,9 @@ export default class DevelopmentStages {
     }
 
     //happy
-    if (developmentCounter > 6 && developmentCounter <= 9 && hunger > 120) {
+    if (developmentCounter > 6 && developmentCounter <= 9 && hunger >= 120) {
       image(babyHappy, 368, 575, 55, 36);
     }
-
-    //sad
     if (developmentCounter > 6 && developmentCounter <= 9 && hunger <= 120) {
       image(babySad, 368, 573, 60, 39);
     }
@@ -41,12 +39,12 @@ export default class DevelopmentStages {
 
     //happy
     if (developmentCounter > 9 && developmentCounter <= 15) {
-      //image(childHappy, 307, 447, 123, 86);
+      image(childHappy, 337, 447, 123, 86);
     }
 
     //sad
     if (developmentCounter > 9 && developmentCounter <= 15) {
-      //image(childSad, 307, 447, 123, 86);
+      //image(childSad, 337, 447, 123, 86);
     }
   }
 

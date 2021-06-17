@@ -5,17 +5,17 @@ let developmentCounter = 0;
 let mood = "neutral";
 let gameState = "startScreen";
 
-//functions
-
 //class imports
 import Button from "./Button.js";
 import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
-let hungerBar = new Parameter(500, 10, 200, 25, 180, 100, 0);
-let thirstBar = new Parameter(500, 40, 200, 25, 0, 180, 0);
-let attentionBar = new Parameter(500, 70, 200, 25, 0, 105, 105);
+
+let thirstBar = new Parameter(500, 10, 200, 25, 0, 180, 0, 200);
+let hungerBar = new Parameter(500, 40, 200, 25, 180, 100, 0, 200);
+let attentionBar = new Parameter(500, 70, 200, 25, 0, 105, 105, 200);
+let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
 //buttons
 let feedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
@@ -24,27 +24,28 @@ let waterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
 let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "Warm", 150, 150, 150);
 
-//drawings 7 PNGs
+//drawings PNGs
 let development = new DevelopmentStages();
 
+//functions
+
 function mouseClicked() {
-  if (feedButton.hitTest() && hunger <= 150) {
+  if (feedButton.hitTest() && hungerBar.need <= 150) {
     mood = "happy";
     developmentCounter = developmentCounter + 1;
-    hunger = hunger + 50;
-    //hunger variable auffüllen
+    hungerBar.need = hungerBar.need + 50;
   }
 
-  if (attentionButton.hitTest()) {
-    mood = "normal";
-    developmentCounter = developmentCounter + 1;
-    //attention variable auffüllen
-  }
-
-  if (waterButton.hitTest()) {
+  if (waterButton.hitTest() && thirstBar.need <= 120) {
     mood = "sad";
     developmentCounter = developmentCounter + 1;
-    //thirst variable auffüllen
+    thirstBar.need = thirstBar.need + 80;
+  }
+
+  if (attentionButton.hitTest() && attentionBar.need <= 100) {
+    mood = "normal";
+    developmentCounter = developmentCounter + 1;
+    attentionBar.need = attentionBar.need + 100;
   }
 
   if (startButton.hitTest()) {
@@ -54,6 +55,7 @@ function mouseClicked() {
 
   if (warmButton.hitTest() && developmentCounter <= 6) {
     developmentCounter = developmentCounter + 1;
+    warmBar.need = warmBar.need + 32;
   }
 }
 
@@ -70,9 +72,19 @@ function draw() {
     fill(130);
     ellipse(400, 700, 300, 60);
 
-    hungerBar.display();
-    thirstBar.display();
-    attentionBar.display();
+    //parameter calc
+    if (developmentCounter <= 6) {
+      warmBar.display();
+    }
+    if (developmentCounter > 6) {
+      hungerBar.display();
+      hungerBar.need = hungerBar.need - 0.05;
+      thirstBar.display();
+      thirstBar.need = thirstBar.need - 0.08;
+      attentionBar.display();
+      attentionBar.need = attentionBar.need - 0.1;
+    }
+
     development.display();
     if (developmentCounter <= 6) {
       warmButton.display();
@@ -83,10 +95,9 @@ function draw() {
       waterButton.display();
     }
   }
-
   //logs----------
   //console.log(gameState);
-  console.log(developmentCounter);
+  //console.log(developmentCounter);
   //console.log(hunger);
 }
 

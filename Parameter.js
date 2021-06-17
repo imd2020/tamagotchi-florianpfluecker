@@ -1,5 +1,5 @@
 export default class Parameter {
-  constructor(x, y, w, h, r, g, b) {
+  constructor(x, y, w, h, r, g, b, need) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -7,8 +7,10 @@ export default class Parameter {
     this.r = r;
     this.g = g;
     this.b = b;
+    this.need = need;
   }
 
+  //!
   hunger() {
     hunger = hunger - 0.02;
   }
@@ -30,7 +32,7 @@ export default class Parameter {
   parameter() {
     noStroke();
     fill(this.r, this.g, this.b);
-    rect(this.x, this.y, hunger, this.h, 8);
+    rect(this.x, this.y, this.need, this.h, 8);
     noFill();
   }
 
