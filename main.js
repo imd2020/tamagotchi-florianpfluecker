@@ -96,25 +96,29 @@ function draw() {
     }
   }
 
-  if (hungerBar.need < 150) {
-    fill(0);
-    text("hunger", 100, 100);
-    noFill();
-  }
-  if (thirstBar.need < 140) {
-    fill(0);
-    text("thirst", 130, 100);
-    noFill();
-  }
-  if (attentionBar.need < 70) {
-    fill(0);
-    text("attention", 160, 100);
-    noFill();
-  }
+  // if (hungerBar.need < 150) {
+  //   fill(0);
+  //   text("hunger", 100, 100);
+  //   noFill();
+  // }
+  // if (thirstBar.need < 140) {
+  //   fill(0);
+  //   text("thirst", 130, 100);
+  //   noFill();
+  // }
+  // if (attentionBar.need < 70) {
+  //   fill(0);
+  //   text("attention", 160, 100);
+  //   noFill();
+  // }
+
   //logs----------
-  //console.log(gameState);
+
   //console.log(developmentCounter);
   //console.log(hunger);
+  //console.log(hungerBar.need);
+  //console.log(thirstBar.need);
+  //console.log(attentionBar.need);
 }
 
 //PNGs
