@@ -36,16 +36,16 @@ function mouseClicked() {
     hungerBar.need = hungerBar.need + 50;
   }
 
-  if (waterButton.hitTest() && thirstBar.need <= 120) {
+  if (waterButton.hitTest() && thirstBar.need <= 140) {
     mood = "sad";
     developmentCounter = developmentCounter + 1;
-    thirstBar.need = thirstBar.need + 80;
+    thirstBar.need = thirstBar.need + 60;
   }
 
-  if (attentionButton.hitTest() && attentionBar.need <= 100) {
+  if (attentionButton.hitTest() && attentionBar.need <= 70) {
     mood = "normal";
     developmentCounter = developmentCounter + 1;
-    attentionBar.need = attentionBar.need + 100;
+    attentionBar.need = attentionBar.need + 130;
   }
 
   if (startButton.hitTest()) {
@@ -94,6 +94,22 @@ function draw() {
       attentionButton.display();
       waterButton.display();
     }
+  }
+
+  if (hungerBar.need < 150) {
+    fill(0);
+    text("hunger", 100, 100);
+    noFill();
+  }
+  if (thirstBar.need < 140) {
+    fill(0);
+    text("thirst", 130, 100);
+    noFill();
+  }
+  if (attentionBar.need < 70) {
+    fill(0);
+    text("attention", 160, 100);
+    noFill();
   }
   //logs----------
   //console.log(gameState);
