@@ -96,22 +96,6 @@ function draw() {
     }
   }
 
-  // if (hungerBar.need < 150) {
-  //   fill(0);
-  //   text("hunger", 100, 100);
-  //   noFill();
-  // }
-  // if (thirstBar.need < 140) {
-  //   fill(0);
-  //   text("thirst", 130, 100);
-  //   noFill();
-  // }
-  // if (attentionBar.need < 70) {
-  //   fill(0);
-  //   text("attention", 160, 100);
-  //   noFill();
-  // }
-
   //logs----------
 
   //console.log(developmentCounter);
@@ -140,3 +124,11 @@ babySad = loadImage("CC_T_BabyBody-EyesSAD.png");
 egg = loadImage("CC_T_Egg.png");
 eggCrack = loadImage("CC_T_Egg-Crack.png ");
 eggCracked = loadImage("CC_T_Egg-Cracked.png");
+//EMOTIONS
+hungry = loadImage("hungry.png");
+thirsty = loadImage("thirst.png");
+bored = loadImage("bored.png");
+
+image(hungry, 100, 100, 120, 130);
+image(thirsty, 300, 100, 140, 120);
+image(bored, 450, 100, 140, 120);
