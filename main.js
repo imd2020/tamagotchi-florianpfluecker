@@ -22,7 +22,7 @@ let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 let feedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
-let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
+let startButton = new Button(290, 600, 220, 60, "start game", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 
 //drawings PNGs
