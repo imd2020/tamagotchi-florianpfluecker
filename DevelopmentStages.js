@@ -40,7 +40,7 @@ export default class DevelopmentStages {
 
       if (attentionBar.need < 70) {
         image(bored, 470, 430, 140, 120);
-        fill(100, 100, 100);
+        fill(50);
         ellipse(550, 870, 15, 15);
         noFill();
       }
@@ -75,7 +75,7 @@ export default class DevelopmentStages {
       if (attentionBar.need < 70) {
         image(bored, 470, 230, 140, 120);
 
-        fill(100, 100, 100);
+        fill(50);
         ellipse(550, 870, 15, 15);
         noFill();
       }
@@ -115,7 +115,7 @@ export default class DevelopmentStages {
       if (attentionBar.need < 70) {
         image(bored, 470, 100, 140, 120);
 
-        fill(100, 100, 100);
+        fill(50);
         ellipse(550, 870, 15, 15);
         noFill();
       }

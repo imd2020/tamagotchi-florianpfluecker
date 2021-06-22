@@ -12,14 +12,14 @@ import DevelopmentStages from "./DevelopmentStages.js";
 
 let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 200);
 let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 200);
-let attentionBar = new Parameter(530, 120, 200, 25, 100, 100, 100, 200);
+let attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
 let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
 //buttons
 let feedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
-let startButton = new Button(290, 600, 220, 60, "start game", 150, 150, 150);
+let startButton = new Button(290, 700, 220, 60, "start game", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 
 //drawings PNGs
@@ -126,6 +126,9 @@ eggCracked = loadImage("CC_T_Egg-Cracked.png");
 hungry = loadImage("hungry.png");
 thirsty = loadImage("thirst.png");
 bored = loadImage("bored.png");
+
+//LOGO
+logo = loadImage("logo.png");
 
 image(hungry, 100, 100, 120, 130);
 image(thirsty, 300, 100, 140, 120);
