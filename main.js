@@ -33,7 +33,6 @@ function mouseClicked() {
   if (feedButton.hitTest() && hungerBar.need <= 150) {
     mood = "happy";
     developmentCounter = developmentCounter + 1;
-    hungerBar.need = hungerBar.need + 50;
   }
 
   if (waterButton.hitTest() && thirstBar.need <= 140) {
@@ -55,7 +54,7 @@ function mouseClicked() {
 
   if (warmButton.hitTest() && developmentCounter <= 6) {
     developmentCounter = developmentCounter + 1;
-    warmBar.need = warmBar.need + 32;
+    warmBar.need = warmBar.need + random(20, 35);
   }
 }
 
