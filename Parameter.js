@@ -11,19 +11,6 @@ export default class Parameter extends Rectangle {
     this.need = need;
   }
 
-  //!
-  hunger() {
-    hunger = hunger - 0.02;
-  }
-
-  thirst() {
-    thirst = thirst - 1.2;
-  }
-
-  attention() {
-    attention = attention - 0.8;
-  }
-
   button() {
     noStroke();
     fill(200);
@@ -38,9 +25,6 @@ export default class Parameter extends Rectangle {
   }
 
   display() {
-    this.hunger();
-    this.thirst();
-    this.attention();
     this.button();
     this.parameter();
   }

@@ -1,6 +1,3 @@
-let hunger = 200;
-let thirst = 200;
-let attention = 200;
 let developmentCounter = 0;
 let mood = "neutral";
 let gameState = "startScreen";
