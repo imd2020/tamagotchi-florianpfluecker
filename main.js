@@ -6,23 +6,24 @@ let mood = "neutral";
 let gameState = "startScreen";
 
 //class imports
+import Rectangle from "./Rectangle.js";
 import Button from "./Button.js";
 import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
 
-let thirstBar = new Parameter(500, 10, 200, 25, 0, 180, 0, 200);
-let hungerBar = new Parameter(500, 40, 200, 25, 180, 100, 0, 200);
-let attentionBar = new Parameter(500, 70, 200, 25, 0, 105, 105, 200);
+let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 200);
+let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 200);
+let attentionBar = new Parameter(530, 120, 200, 25, 100, 100, 100, 200);
 let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
 //buttons
-let feedButton = new Button(350, 800, 100, 50, "Feed", 150, 150, 150);
-let attentionButton = new Button(500, 800, 100, 50, "Attention", 150, 150, 150);
-let waterButton = new Button(200, 800, 100, 50, "Water", 150, 150, 150);
+let feedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
+let attentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
+let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
 let startButton = new Button(300, 600, 200, 70, "start game", 150, 150, 150);
-let warmButton = new Button(350, 800, 100, 50, "Warm", 150, 150, 150);
+let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 
 //drawings PNGs
 let development = new DevelopmentStages();
@@ -33,6 +34,7 @@ function mouseClicked() {
   if (feedButton.hitTest() && hungerBar.need <= 150) {
     mood = "happy";
     developmentCounter = developmentCounter + 1;
+    hungerBar.need = hungerBar.need + 50;
   }
 
   if (waterButton.hitTest() && thirstBar.need <= 140) {
@@ -54,7 +56,7 @@ function mouseClicked() {
 
   if (warmButton.hitTest() && developmentCounter <= 6) {
     developmentCounter = developmentCounter + 1;
-    warmBar.need = warmBar.need + random(20, 35);
+    warmBar.need = warmBar.need + random(20, 40);
   }
 }
 

@@ -1,16 +1,10 @@
-export default class Button {
+export default class Button extends Rectangle {
   constructor(x, y, w, h, title, r, g, b) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
+    super(x, y, w, h, r, g, b);
     this.title = title;
-    this.r = r;
-    this.g = g;
-    this.b = b;
   }
 
-  display() {
+  button() {
     noStroke();
     fill(this.r, this.g, this.b);
     rect(this.x, this.y, this.w, this.h, 15);
@@ -47,5 +41,9 @@ export default class Button {
     } else {
       return false;
     }
+  }
+
+  display() {
+    this.button();
   }
 }

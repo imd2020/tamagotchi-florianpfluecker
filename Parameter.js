@@ -1,5 +1,6 @@
-export default class Parameter {
+export default class Parameter extends Rectangle {
   constructor(x, y, w, h, r, g, b, need) {
+    super(x, y, w, h, r, g, b);
     this.x = x;
     this.y = y;
     this.w = w;
@@ -23,7 +24,7 @@ export default class Parameter {
     attention = attention - 0.8;
   }
 
-  bar() {
+  button() {
     noStroke();
     fill(200);
     rect(this.x, this.y, this.w, this.h, 9);
@@ -40,7 +41,7 @@ export default class Parameter {
     this.hunger();
     this.thirst();
     this.attention();
-    this.bar();
+    this.button();
     this.parameter();
   }
 }

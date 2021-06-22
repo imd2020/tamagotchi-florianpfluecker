@@ -26,14 +26,23 @@ export default class DevelopmentStages {
       } else {
         image(babySad, 368, 573, 60, 39);
         image(hungry, 370, 400, 120, 130);
+        fill(140, 98, 57);
+        ellipse(400, 870, 15, 15);
+        noFill();
       }
 
       if (thirstBar.need < 140) {
         image(thirsty, 160, 450, 140, 120);
+        fill(41, 171, 226);
+        ellipse(250, 870, 15, 15);
+        noFill();
       }
 
       if (attentionBar.need < 70) {
         image(bored, 470, 430, 140, 120);
+        fill(100, 100, 100);
+        ellipse(550, 870, 15, 15);
+        noFill();
       }
     }
   }
@@ -49,14 +58,26 @@ export default class DevelopmentStages {
       } else {
         image(childSad, 337, 447, 123, 86);
         image(hungry, 370, 200, 120, 130);
+
+        fill(140, 98, 57);
+        ellipse(400, 870, 15, 15);
+        noFill();
       }
 
       if (thirstBar.need < 140) {
         image(thirsty, 160, 250, 140, 120);
+
+        fill(41, 171, 226);
+        ellipse(250, 870, 15, 15);
+        noFill();
       }
 
       if (attentionBar.need < 70) {
         image(bored, 470, 230, 140, 120);
+
+        fill(100, 100, 100);
+        ellipse(550, 870, 15, 15);
+        noFill();
       }
     }
   }
@@ -72,16 +93,31 @@ export default class DevelopmentStages {
       } else if (hungerBar.need > 70 && hungerBar.need < 150) {
         image(youthSad, 340, 240, 112, 136);
         image(hungry, 340, 50, 120, 130);
+
+        fill(140, 98, 57);
+        ellipse(400, 870, 15, 15);
+        noFill();
       } else if (hungerBar.need < 70) {
         image(youthAngry, 340, 245, 112, 156);
+        fill(140, 98, 57);
+        ellipse(400, 870, 15, 15);
+        noFill();
       }
 
       if (thirstBar.need < 140) {
         image(thirsty, 160, 90, 140, 120);
+
+        fill(41, 171, 226);
+        ellipse(250, 870, 15, 15);
+        noFill();
       }
 
       if (attentionBar.need < 70) {
         image(bored, 470, 100, 140, 120);
+
+        fill(100, 100, 100);
+        ellipse(550, 870, 15, 15);
+        noFill();
       }
     }
   }
