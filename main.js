@@ -1,5 +1,4 @@
 let developmentCounter = 0;
-let mood = "neutral";
 let gameState = "startScreen";
 
 //class imports
@@ -10,8 +9,8 @@ import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
 
-let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 200);
-let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 200);
+let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 120);
+let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 130);
 let attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
 let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
@@ -19,7 +18,7 @@ let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 let feedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
-let startButton = new Button(290, 550, 220, 60, "start game", 150, 150, 150);
+let startButton = new Button(290, 650, 220, 60, "start game", 150, 150, 150);
 let nextButton = new Button(310, 720, 180, 60, "next", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 
@@ -63,6 +62,7 @@ function mouseClicked() {
 
 //functions
 function startScreen() {
+  fill(105);
   if (gameState === "startScreen") {
     rect(0, 0, 800, 900, 50);
     startButton.display();
@@ -100,10 +100,9 @@ function draw() {
       thirstBar.need = thirstBar.need - 0.08;
       attentionBar.display();
       attentionBar.need = attentionBar.need - 0.1;
-      fill(0);
-
-      text("hunger", 475, 60);
-      text("thirst", 467, 100);
+      fill(200);
+      text("hunger", 475, 100);
+      text("thirst", 467, 60);
       text("attention", 481, 140);
     }
 
