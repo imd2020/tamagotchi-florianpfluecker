@@ -10,7 +10,7 @@ import DevelopmentStages from "./DevelopmentStages.js";
 //parameters
 
 let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 120);
-let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 130);
+let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 170);
 let attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
 let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
@@ -21,6 +21,7 @@ let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
 let startButton = new Button(290, 650, 220, 60, "start game", 150, 150, 150);
 let nextButton = new Button(310, 720, 180, 60, "next", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
+let restartButton = new Button(310, 770, 180, 60, "restart", 150, 150, 150);
 
 //drawings PNGs
 let development = new DevelopmentStages();
@@ -44,7 +45,7 @@ function mouseClicked() {
     attentionBar.need = attentionBar.need + 130;
   }
 
-  if (startButton.hitTest()) {
+  if (startButton.hitTest() && gameState === "startScreen") {
     gameState = "introScreen";
     console.log("works");
   }
@@ -57,6 +58,15 @@ function mouseClicked() {
   if (warmButton.hitTest() && developmentCounter <= 6) {
     developmentCounter = developmentCounter + 1;
     warmBar.need = warmBar.need + random(20, 40);
+  }
+
+  if (restartButton.hitTest() && gameState === "endScreenYouth") {
+    developmentCounter = 0;
+    hungerBar.need = 200;
+    thirstBar.need = 200;
+    attentionBar.need = 200;
+
+    gameState = "startScreen";
   }
 }
 
@@ -71,13 +81,28 @@ function startScreen() {
 function introScreen() {
   if (gameState === "introScreen") {
     rect(0, 0, 800, 900, 50);
-    fill(0);
+    fill(255);
+    textSize(25);
     text("please take care of the Dinosaur", 400, 400);
-    text("he will ask for water, food or attention...", 400, 430);
-    text("dont forget to feed him!", 400, 460);
+    text("he will ask for water, food or attention...", 400, 435);
+    text("dont forget to feed him!", 400, 470);
     nextButton.display();
   }
 }
+function endScreenYouth() {
+  if (gameState === "endScreenYouth") {
+    fill(105);
+    rect(0, 0, 800, 900, 50);
+    fill(0);
+    textSize(45);
+    text("YOU LOST!", 400, 140);
+    textSize(25);
+    text("the dinosaur ate you instead", 400, 180);
+    image(youthBloody, 235, 200, 352, 518);
+    restartButton.display();
+  }
+}
+function endScreen() {}
 
 function draw() {
   startScreen();
@@ -116,6 +141,24 @@ function draw() {
       attentionButton.display();
       waterButton.display();
     }
+
+    if (
+      hungerBar.need <= 10 ||
+      thirstBar.need <= 10 ||
+      (attentionBar.need <= 10 && developmentCounter > 25)
+    ) {
+      gameState = "endScreenYouth";
+    }
+
+    if (
+      hungerBar.need <= 10 ||
+      thirstBar.need <= 10 ||
+      (attentionBar.need <= 10 && developmentCounter <= 25)
+    ) {
+      gameState = "endScreenYouth";
+    }
+
+    endScreenYouth();
   }
   //console.log(gameState);
   //console.log(developmentCounter);
@@ -132,6 +175,7 @@ youth = loadImage("./CC_T_YouthBody.png");
 youthAngry = loadImage("./CC_T_YouthBody-AngryEYES.png");
 youthHappy = loadImage("CC_T_YouthBody-HappyEYES.png");
 youthSad = loadImage("CC_T_YouthBody-SadEYES.png");
+youthBloody = loadImage("CC_T_YouthBody-Bloody.png");
 //CHILD
 child = loadImage("CC_T_ChildBody.png");
 childSad = loadImage("CC_T_ChildBody-SADEyes.png");
@@ -151,7 +195,3 @@ bored = loadImage("bored.png");
 
 //LOGO
 logo = loadImage("logo.png");
-
-image(hungry, 100, 100, 120, 130);
-image(thirsty, 300, 100, 140, 120);
-image(bored, 450, 100, 140, 120);

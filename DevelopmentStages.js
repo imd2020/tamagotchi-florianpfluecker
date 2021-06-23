@@ -113,7 +113,7 @@ export default class DevelopmentStages {
       }
 
       if (attentionBar.need < 70) {
-        image(bored, 470, 100, 140, 120);
+        image(bored, 500, 160, 140, 120);
 
         fill(50);
         ellipse(550, 870, 15, 15);
