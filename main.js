@@ -19,13 +19,12 @@ let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 let feedButton = new Button(350, 800, 100, 50, "feed", 150, 150, 150);
 let attentionButton = new Button(500, 800, 100, 50, "attention", 150, 150, 150);
 let waterButton = new Button(200, 800, 100, 50, "water", 150, 150, 150);
-let startButton = new Button(290, 700, 220, 60, "start game", 150, 150, 150);
+let startButton = new Button(290, 550, 220, 60, "start game", 150, 150, 150);
+let nextButton = new Button(310, 720, 180, 60, "next", 150, 150, 150);
 let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 
 //drawings PNGs
 let development = new DevelopmentStages();
-
-//functions
 
 function mouseClicked() {
   if (feedButton.hitTest() && hungerBar.need <= 150) {
@@ -47,6 +46,11 @@ function mouseClicked() {
   }
 
   if (startButton.hitTest()) {
+    gameState = "introScreen";
+    console.log("works");
+  }
+
+  if (nextButton.hitTest()) {
     gameState = "game";
     console.log("works");
   }
@@ -57,14 +61,28 @@ function mouseClicked() {
   }
 }
 
-function draw() {
-  //startSCreen
+//functions
+function startScreen() {
   if (gameState === "startScreen") {
     rect(0, 0, 800, 900, 50);
     startButton.display();
   }
+}
+function introScreen() {
+  if (gameState === "introScreen") {
+    rect(0, 0, 800, 900, 50);
+    fill(0);
+    text("please take care of the Dinosaur", 400, 400);
+    text("he will ask for water, food or attention...", 400, 430);
+    text("dont forget to feed him!", 400, 460);
+    nextButton.display();
+  }
+}
 
-  //gameScreen
+function draw() {
+  startScreen();
+  introScreen();
+  //game
   if (gameState === "game") {
     rect(0, 0, 800, 900, 50);
     fill(130);
@@ -74,6 +92,7 @@ function draw() {
     if (developmentCounter <= 6) {
       warmBar.display();
     }
+
     if (developmentCounter > 6) {
       hungerBar.display();
       hungerBar.need = hungerBar.need - 0.05;
@@ -81,21 +100,25 @@ function draw() {
       thirstBar.need = thirstBar.need - 0.08;
       attentionBar.display();
       attentionBar.need = attentionBar.need - 0.1;
+      fill(0);
+
+      text("hunger", 475, 60);
+      text("thirst", 467, 100);
+      text("attention", 481, 140);
     }
 
     development.display();
     if (developmentCounter <= 6) {
       warmButton.display();
     }
+
     if (developmentCounter > 6) {
       feedButton.display();
       attentionButton.display();
       waterButton.display();
     }
   }
-
-  //logs----------
-
+  //console.log(gameState);
   //console.log(developmentCounter);
   //console.log(hunger);
   //console.log(hungerBar.need);
