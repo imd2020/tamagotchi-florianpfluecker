@@ -1,6 +1,3 @@
-window.mouseClicked = mouseClicked;
-window.draw = draw;
-
 let developmentCounter = 0;
 let gameState = "startScreen";
 
@@ -85,7 +82,7 @@ function startScreen() {
   if (gameState === "startScreen") {
     rect(0, 0, 800, 900, 50);
     image(foot, 100, 650, 100, 100);
-    image(foot, 140, 840, 100, 100);
+    image(foot, 140, 800, 100, 100);
     image(foot, 300, 570, 100, 100);
     image(foot, 270, 370, 100, 100);
     image(foot, 500, 370, 100, 100);
@@ -228,3 +225,6 @@ bored = loadImage("bored.png");
 logo = loadImage("logo.png");
 candle = loadImage("candle.png");
 foot = loadImage("foot.png");
+
+window.mouseClicked = mouseClicked;
+window.draw = draw;

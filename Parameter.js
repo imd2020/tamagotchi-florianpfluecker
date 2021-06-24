@@ -1,3 +1,4 @@
+import Rectangle from "./Rectangle.js";
 export default class Parameter extends Rectangle {
   constructor(x, y, w, h, r, g, b, need) {
     super(x, y, w, h, r, g, b);

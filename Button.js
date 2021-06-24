@@ -1,3 +1,4 @@
+import Rectangle from "./Rectangle.js";
 export default class Button extends Rectangle {
   constructor(x, y, w, h, title, r, g, b) {
     super(x, y, w, h, r, g, b);
