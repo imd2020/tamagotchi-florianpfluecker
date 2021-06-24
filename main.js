@@ -1,3 +1,6 @@
+window.mouseClicked = mouseClicked;
+window.draw = draw;
+
 let developmentCounter = 0;
 let gameState = "startScreen";
 
@@ -8,7 +11,6 @@ import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
-
 let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 120);
 let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 170);
 let attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
@@ -65,7 +67,14 @@ function mouseClicked() {
     hungerBar.need = 200;
     thirstBar.need = 200;
     attentionBar.need = 200;
+    gameState = "startScreen";
+  }
 
+  if (restartButton.hitTest() && gameState === "endScreen") {
+    developmentCounter = 0;
+    hungerBar.need = 200;
+    thirstBar.need = 200;
+    attentionBar.need = 200;
     gameState = "startScreen";
   }
 }
@@ -75,6 +84,14 @@ function startScreen() {
   fill(105);
   if (gameState === "startScreen") {
     rect(0, 0, 800, 900, 50);
+    image(foot, 100, 650, 100, 100);
+    image(foot, 140, 840, 100, 100);
+    image(foot, 300, 570, 100, 100);
+    image(foot, 270, 370, 100, 100);
+    image(foot, 500, 370, 100, 100);
+    image(foot, 450, 140, 100, 100);
+    image(foot, 650, 120, 100, 100);
+
     startButton.display();
   }
 }
@@ -102,7 +119,21 @@ function endScreenYouth() {
     restartButton.display();
   }
 }
-function endScreen() {}
+function endScreen() {
+  if (gameState === "endScreen") {
+    fill(105);
+    rect(0, 0, 800, 900, 50);
+    fill(0);
+    textSize(45);
+    text("YOU LOST!", 400, 340);
+    textSize(25);
+    text("the dinosaur died...", 400, 380);
+    fill(0);
+    ellipse(400, 700, 300, 60);
+    image(candle, 352, 515, 100, 200);
+    restartButton.display();
+  }
+}
 
 function draw() {
   startScreen();
@@ -112,7 +143,6 @@ function draw() {
     rect(0, 0, 800, 900, 50);
     fill(130);
     ellipse(400, 700, 300, 60);
-
     //parameter calc
     if (developmentCounter <= 6) {
       warmBar.display();
@@ -155,10 +185,11 @@ function draw() {
       thirstBar.need <= 10 ||
       (attentionBar.need <= 10 && developmentCounter <= 25)
     ) {
-      gameState = "endScreenYouth";
+      gameState = "endScreen";
     }
 
     endScreenYouth();
+    endScreen();
   }
   //console.log(gameState);
   //console.log(developmentCounter);
@@ -195,3 +226,5 @@ bored = loadImage("bored.png");
 
 //LOGO
 logo = loadImage("logo.png");
+candle = loadImage("candle.png");
+foot = loadImage("foot.png");
