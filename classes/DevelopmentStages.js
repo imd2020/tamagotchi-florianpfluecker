@@ -48,23 +48,24 @@ export default class DevelopmentStages {
         image(this.babyHappy, 368, 575, 55, 36);
       } else {
         image(this.babySad, 368, 573, 60, 39);
+
         image(this.hungry, 370, 400, 120, 130);
         fill(140, 98, 57);
-        ellipse(400, 870, 15, 15);
+        ellipse(400, 850, 15, 15);
         noFill();
       }
 
       if (thirstBar.need < 140) {
         image(this.thirsty, 160, 450, 140, 120);
         fill(41, 171, 226);
-        ellipse(250, 870, 15, 15);
+        ellipse(250, 850, 15, 15);
         noFill();
       }
 
       if (attentionBar.need < 70) {
         image(this.bored, 470, 430, 140, 120);
         fill(50);
-        ellipse(550, 870, 15, 15);
+        ellipse(550, 850, 15, 15);
         noFill();
       }
     }
@@ -83,7 +84,7 @@ export default class DevelopmentStages {
         image(this.hungry, 370, 200, 120, 130);
 
         fill(140, 98, 57);
-        ellipse(400, 870, 15, 15);
+        ellipse(400, 850, 15, 15);
         noFill();
       }
 
@@ -91,7 +92,7 @@ export default class DevelopmentStages {
         image(this.thirsty, 160, 250, 140, 120);
 
         fill(41, 171, 226);
-        ellipse(250, 870, 15, 15);
+        ellipse(250, 850, 15, 15);
         noFill();
       }
 
@@ -99,7 +100,7 @@ export default class DevelopmentStages {
         image(this.bored, 470, 230, 140, 120);
 
         fill(50);
-        ellipse(550, 870, 15, 15);
+        ellipse(550, 850, 15, 15);
         noFill();
       }
     }
@@ -118,12 +119,12 @@ export default class DevelopmentStages {
         image(this.hungry, 340, 50, 120, 130);
 
         fill(140, 98, 57);
-        ellipse(400, 870, 15, 15);
+        ellipse(400, 850, 15, 15);
         noFill();
       } else if (hungerBar.need < 70) {
         image(this.youthAngry, 340, 245, 112, 156);
         fill(140, 98, 57);
-        ellipse(400, 870, 15, 15);
+        ellipse(400, 850, 15, 15);
         noFill();
       }
 
@@ -131,7 +132,7 @@ export default class DevelopmentStages {
         image(this.thirsty, 160, 90, 140, 120);
 
         fill(41, 171, 226);
-        ellipse(250, 870, 15, 15);
+        ellipse(250, 850, 15, 15);
         noFill();
       }
 
@@ -139,7 +140,7 @@ export default class DevelopmentStages {
         image(this.bored, 500, 160, 140, 120);
 
         fill(50);
-        ellipse(550, 870, 15, 15);
+        ellipse(550, 850, 15, 15);
         noFill();
       }
     }

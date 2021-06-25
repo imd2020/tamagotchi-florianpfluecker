@@ -22,4 +22,4 @@ function draw() {
   rechteck.button();
 }
 
-gsap.to(rechteck, { duration: 3, x: 500, y: 300, ease: "elastic" });
+gsap.to(rechteck, { duration: 1, x: 500, y: 550, ease: "BounceInOut" });

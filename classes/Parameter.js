@@ -15,13 +15,13 @@ export default class Parameter extends Rectangle {
   button() {
     noStroke();
     fill(200);
-    rect(this.x, this.y, this.w, this.h, 9);
+    rect(this.x - 2, this.y, this.w + 2, this.h, 9);
   }
 
   parameter() {
     noStroke();
     fill(this.r, this.g, this.b);
-    rect(this.x, this.y, this.need, this.h, 8);
+    rect(this.x, this.y + 2, this.need, this.h - 4, 8);
     noFill();
   }
 
