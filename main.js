@@ -122,8 +122,23 @@ function startScreen() {
     image(images.foot, 650, 120, 100, 100);
     startButton.display();
     image(images.slogan, 55, 270, 700, 450);
+    animation1();
   }
 }
+
+// function animation1(){
+//   gsap.to(images.slogan, duration: 4,x: 25, ease: "bounce",
+//   onComplete(): => {
+//     animation2();
+//   })
+// }
+
+// function animation2(){
+//   gsap.to(images.slogan, duration: 4,x: 75, ease: "bounce",
+//   onComplete(): => {
+//     animation1();
+//   })
+// }
 
 function introScreen() {
   if (gameState === "introScreen") {
@@ -171,7 +186,7 @@ function endScreen() {
 function draw() {
   startScreen();
   introScreen();
-  //game
+  //game ! function !
   if (gameState === "game") {
     rect(0, 0, 800, 900, 50);
     fill(130);
