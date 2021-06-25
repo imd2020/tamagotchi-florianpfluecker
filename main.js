@@ -122,7 +122,7 @@ function startScreen() {
     image(images.foot, 650, 120, 100, 100);
     startButton.display();
     image(images.slogan, 55, 270, 700, 450);
-    animation1();
+    //animation1();
   }
 }
 
