@@ -1,5 +1,36 @@
-let developmentCounter = 0;
+window.developmentCounter = 0;
 let gameState = "startScreen";
+
+//PNGs
+
+let images = {
+  iyouth: loadImage("./CC_T_YouthBody.png"),
+  youthAngry: loadImage("./CC_T_YouthBody-AngryEYES.png"),
+  youthHappy: loadImage("CC_T_YouthBody-HappyEYES.png"),
+  youthSad: loadImage("CC_T_YouthBody-SadEYES.png"),
+  youthBloody: loadImage("CC_T_YouthBody-Bloody.png"),
+  //CHILD
+  ichild: loadImage("CC_T_ChildBody.png"),
+  childSad: loadImage("CC_T_ChildBody-SADEyes.png"),
+  childHappy: loadImage("CC_T_ChildBody-HappyEYES.png"),
+  //BABY
+  ibaby: loadImage("CC_T_ BabyBody.png"),
+  babyHappy: loadImage("CC_T_BabyBody-EyesHAPPY.png"),
+  babySad: loadImage("CC_T_BabyBody-EyesSAD.png"),
+  //EGG
+  iegg: loadImage("CC_T_Egg.png"),
+  eggCrack: loadImage("CC_T_Egg-Crack.png "),
+  eggCracked: loadImage("CC_T_Egg-Cracked.png"),
+  //EMOTIONS
+  hungry: loadImage("hungry.png"),
+  thirsty: loadImage("thirst.png"),
+  bored: loadImage("bored.png"),
+
+  //LOGO
+  logo: loadImage("logo.png"),
+  candle: loadImage("candle.png"),
+  foot: loadImage("foot.png"),
+};
 
 //class imports
 import Rectangle from "./Rectangle.js";
@@ -8,9 +39,11 @@ import Parameter from "./Parameter.js";
 import DevelopmentStages from "./DevelopmentStages.js";
 
 //parameters
-let thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 120);
-let hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 170);
-let attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
+
+// unsauberes Prgrammieren wurde abgesprochen (window.)
+window.thirstBar = new Parameter(530, 40, 200, 25, 41, 171, 226, 120);
+window.hungerBar = new Parameter(530, 80, 200, 25, 140, 98, 57, 170);
+window.attentionBar = new Parameter(530, 120, 200, 25, 50, 50, 50, 200);
 let warmBar = new Parameter(300, 400, 200, 25, 255, 0, 0, 0);
 
 //buttons
@@ -23,23 +56,20 @@ let warmButton = new Button(350, 800, 100, 50, "warm", 150, 150, 150);
 let restartButton = new Button(310, 770, 180, 60, "restart", 150, 150, 150);
 
 //drawings PNGs
-let development = new DevelopmentStages();
+let development = new DevelopmentStages(images);
 
 function mouseClicked() {
   if (feedButton.hitTest() && hungerBar.need <= 150) {
-    mood = "happy";
     developmentCounter = developmentCounter + 1;
     hungerBar.need = hungerBar.need + 50;
   }
 
   if (waterButton.hitTest() && thirstBar.need <= 140) {
-    mood = "sad";
     developmentCounter = developmentCounter + 1;
     thirstBar.need = thirstBar.need + 60;
   }
 
   if (attentionButton.hitTest() && attentionBar.need <= 70) {
-    mood = "normal";
     developmentCounter = developmentCounter + 1;
     attentionBar.need = attentionBar.need + 130;
   }
@@ -81,17 +111,17 @@ function startScreen() {
   fill(105);
   if (gameState === "startScreen") {
     rect(0, 0, 800, 900, 50);
-    image(foot, 100, 650, 100, 100);
-    image(foot, 140, 800, 100, 100);
-    image(foot, 300, 570, 100, 100);
-    image(foot, 270, 370, 100, 100);
-    image(foot, 500, 370, 100, 100);
-    image(foot, 450, 140, 100, 100);
-    image(foot, 650, 120, 100, 100);
-
+    image(images.foot, 100, 650, 100, 100);
+    image(images.foot, 140, 800, 100, 100);
+    image(images.foot, 300, 570, 100, 100);
+    image(images.foot, 270, 370, 100, 100);
+    image(images.foot, 500, 370, 100, 100);
+    image(images.foot, 450, 140, 100, 100);
+    image(images.foot, 650, 120, 100, 100);
     startButton.display();
   }
 }
+
 function introScreen() {
   if (gameState === "introScreen") {
     rect(0, 0, 800, 900, 50);
@@ -103,6 +133,7 @@ function introScreen() {
     nextButton.display();
   }
 }
+
 function endScreenYouth() {
   if (gameState === "endScreenYouth") {
     fill(105);
@@ -112,10 +143,11 @@ function endScreenYouth() {
     text("YOU LOST!", 400, 140);
     textSize(25);
     text("the dinosaur ate you instead", 400, 180);
-    image(youthBloody, 235, 200, 352, 518);
+    image(this.youthBloody, 235, 200, 352, 518);
     restartButton.display();
   }
 }
+
 function endScreen() {
   if (gameState === "endScreen") {
     fill(105);
@@ -127,7 +159,7 @@ function endScreen() {
     text("the dinosaur died...", 400, 380);
     fill(0);
     ellipse(400, 700, 300, 60);
-    image(candle, 352, 515, 100, 200);
+    image(this.candle, 352, 515, 100, 200);
     restartButton.display();
   }
 }
@@ -192,39 +224,9 @@ function draw() {
   //console.log(developmentCounter);
   //console.log(hunger);
   //console.log(hungerBar.need);
-  //console.log(thirstBar.need);
+  //.log(thirstBar.need);
   //console.log(attentionBar.need);
 }
-
-//PNGs
-//_______________________________________________________
-//YOUTH
-youth = loadImage("./CC_T_YouthBody.png");
-youthAngry = loadImage("./CC_T_YouthBody-AngryEYES.png");
-youthHappy = loadImage("CC_T_YouthBody-HappyEYES.png");
-youthSad = loadImage("CC_T_YouthBody-SadEYES.png");
-youthBloody = loadImage("CC_T_YouthBody-Bloody.png");
-//CHILD
-child = loadImage("CC_T_ChildBody.png");
-childSad = loadImage("CC_T_ChildBody-SADEyes.png");
-childHappy = loadImage("CC_T_ChildBody-HappyEYES.png");
-//BABY
-baby = loadImage("CC_T_ BabyBody.png");
-babyHappy = loadImage("CC_T_BabyBody-EyesHAPPY.png");
-babySad = loadImage("CC_T_BabyBody-EyesSAD.png");
-//EGG
-egg = loadImage("CC_T_Egg.png");
-eggCrack = loadImage("CC_T_Egg-Crack.png ");
-eggCracked = loadImage("CC_T_Egg-Cracked.png");
-//EMOTIONS
-hungry = loadImage("hungry.png");
-thirsty = loadImage("thirst.png");
-bored = loadImage("bored.png");
-
-//LOGO
-logo = loadImage("logo.png");
-candle = loadImage("candle.png");
-foot = loadImage("foot.png");
 
 window.mouseClicked = mouseClicked;
 window.draw = draw;
